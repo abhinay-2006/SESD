@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Customer Login</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --accent:#2563eb;
+      --muted:#6b7280;
+      --danger:#ef4444;
+      --radius:12px;
+      --max-width:420px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#eef3fb 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      color:#0f172a;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 8px 30px rgba(16,24,40,0.08);
+      padding:28px;
+      display:grid;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      height:48px;
+      width:48px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent),#7c3aed);
+      color:white;
+      font-weight:700;
+      font-size:18px;
+    }
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted);font-size:14px}
+
+    form{display:grid;gap:12px}
+    label{font-size:13px;color:#0f172a;margin-bottom:6px;display:block}
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    input[type="email"], input[type="password"], input[type="text"]{
+      width:100%;
+      padding:12px 14px;
+      border:1px solid #e6eef8;
+      border-radius:10px;
+      font-size:14px;
+      outline:none;
+      transition:box-shadow .15s, border-color .15s;
+    }
+    input:focus{box-shadow:0 4px 10px rgba(37,99,235,0.12);border-color:var(--accent)}
+
+    .row{display:flex;align-items:center;justify-content:space-between}
+    .checkbox{display:flex;gap:8px;align-items:center}
+    .link{font-size:13px;color:var(--accent);text-decoration:none}
+    .link:hover{text-decoration:underline}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;justify-content:center;
+      gap:8px;
+      padding:12px 14px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+      font-size:15px;
+      background:var(--accent);
+      color:white;
+    }
+
+    .alt{
+      background:transparent;
+      border:1px solid #e6eef8;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .small{font-size:13px;color:var(--muted)}
+
+    .socials{display:flex;gap:8px}
+    .socials button{flex:1;padding:10px;border-radius:10px;border:1px solid #e6eef8;background:white;cursor:pointer}
+
+    .error{color:var(--danger);font-size:13px}
+
+    .helper{font-size:13px;color:var(--muted);text-align:center;margin-top:6px}
+
+    @media (max-width:420px){
+      body{padding:16px}
+      .container{padding:20px}
+    }
+  </style>
+</head>
+<body>
+  <main class="container" aria-labelledby="loginHeading">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">C</div>
+      <div>
+        <h1 id="loginHeading">Customer Login</h1>
+        <p class="lead">Welcome back — sign in to continue to your account</p>
+      </div>
+    </div>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required aria-required="true" placeholder="you@example.com">
+        <div id="emailError" class="error" aria-live="polite"></div>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <div style="position:relative;display:flex;gap:8px;align-items:center">
+          <input id="password" name="password" type="password" autocomplete="current-password" required aria-required="true" minlength="6" placeholder="Enter your password">
+          <button type="button" id="togglePwd" aria-label="Show password" title="Show password" style="border:0;background:transparent;cursor:pointer;font-size:13px">Show</button>
+        </div>
+        <div id="pwdError" class="error"
